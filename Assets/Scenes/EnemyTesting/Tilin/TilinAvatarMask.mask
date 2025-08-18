@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilinAvatarMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Root_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/L_hip_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/L_hip_jnt/L_knee_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/L_hip_jnt/L_knee_jnt/L_ankle_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/L_hip_jnt/L_knee_jnt/L_ankle_jnt/L_toe_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/L_hip_jnt/L_knee_jnt/L_ankle_jnt/L_toe_jnt/L_ball_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/R_hip_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/R_hip_jnt/R_knee_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/R_hip_jnt/R_knee_jnt/R_ankle_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/R_hip_jnt/R_knee_jnt/R_ankle_jnt/R_toe_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Pelv_jnt/R_hip_jnt/R_knee_jnt/R_ankle_jnt/R_toe_jnt/R_ball_jnt
+    m_Weight: 0
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt/Head_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt/L_clav_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt/L_clav_jnt/L_shoulder_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt/L_clav_jnt/L_shoulder_jnt/L_elbow_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt/R_clav_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt/R_clav_jnt/R_shoulder_jnt
+    m_Weight: 1
+  - m_Path: Root_jnt/Center_jnt/Spine1_jnt/Chest_jnt/R_clav_jnt/R_shoulder_jnt/R_elbow_jnt
+    m_Weight: 1
+  - m_Path: Tilin_geo
+    m_Weight: 0
