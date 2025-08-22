@@ -11,6 +11,7 @@ public class InputsSO : ScriptableObject
     [Header("Other Inputs")]
     public KeyCode interact;
     public KeyCode pause;
+    public KeyCode deleteSave;
 
     [Header("Weapon Inputs")]
     public KeyCode shoot;

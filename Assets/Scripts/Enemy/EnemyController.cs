@@ -36,8 +36,7 @@ public class EnemyController : MonoBehaviour
     {
         switch (currentState)
         {
-            case EnemyState.Idle:
-                // No hacer nada
+            case EnemyState.Idle:                
                 break;
 
             case EnemyState.Chasing:
@@ -51,8 +50,7 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
 
-            case EnemyState.Attacking:
-                // Aquí podrías agregar animación o temporizador si quieres delay
+            case EnemyState.Attacking:                
                 break;
 
             case EnemyState.Dead:
@@ -60,16 +58,14 @@ public class EnemyController : MonoBehaviour
                 break;
         }
     }
-
-    // Llamado por EnemyDetection cuando entra el jugador
+        
     public void StartChasing(Transform playerTransform)
     {
         player = playerTransform;
         currentState = EnemyState.Chasing;
         agent.isStopped = false;
     }
-
-    // Llamado por EnemyDetection cuando el jugador sale del rango
+        
     public void StopChasing()
     {
         player = null;
@@ -80,14 +76,12 @@ public class EnemyController : MonoBehaviour
     private void StartAttack()
     {
         currentState = EnemyState.Attacking;
-        //attack.AttackPlayer(player.gameObject);
         Die();
     }
 
     public void Die()
     {
         currentState = EnemyState.Dead;
-        // Aquí puedes desactivar el enemigo, reproducir animación, etc.
-        gameObject.SetActive(false);
+       
     }
 }

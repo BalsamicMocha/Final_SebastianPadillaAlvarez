@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class SaveStation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool activated = false;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (!activated && other.CompareTag("Player"))
+        {
+            activated = true;
+            Debug.Log("Checkpoint activado");
+          
+            GameManager.Instance.SetCheckpoint(this.transform);           
+            SaveData data = new SaveData
+            {
+                playerPosition = other.transform.position,
+                currentAmmo = GameManager.Instance.playerAmmo.currentAmmo,
+                defeatedEnemies = GameManager.Instance.GetDefeatedEnemiesList()
+            };
+
+            SaveSystem.SaveGame(data);
+            Destroy(this.gameObject);
+        }
     }
 }

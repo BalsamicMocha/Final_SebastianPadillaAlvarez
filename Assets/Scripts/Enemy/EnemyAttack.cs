@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private string playerTag = "Player"; // Asegúrate de que el Player tenga este tag
+    [SerializeField] private string playerTag = "Player";
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,9 +16,8 @@ public class EnemyAttack : MonoBehaviour
     }
 
     private void KillPlayer()
-    {
-        // Reinicia la escena actual
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    {        
+        GameManager.Instance.GameOver();
     }
 }
 

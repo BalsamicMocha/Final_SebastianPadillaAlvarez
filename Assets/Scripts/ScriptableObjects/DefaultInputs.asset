@@ -15,5 +15,6 @@ MonoBehaviour:
   jump: 32
   interact: 101
   pause: 27
+  deleteSave: 8
   shoot: 323
   reload: 114

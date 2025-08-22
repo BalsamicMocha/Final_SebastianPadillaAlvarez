@@ -10,18 +10,26 @@ public class Weapon : MonoBehaviour
     public int damage = 25;
     public LayerMask hitMask;
 
-    [Header("Effects")]
-    public GameObject impactEffect;
-    public LineRenderer lineRenderer; // Asignar en inspector
+    [Header("Effects")]    
+    public LineRenderer lineRenderer;
 
     [Header("Debug")]
-    public bool showRayDebug = true; // Habilita/deshabilita el rayo visible en juego
+    public bool showRayDebug = true;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            AmmoManager ammoManager = GetComponent<AmmoManager>();
+            if (ammoManager != null && ammoManager.HasAmmo())
+            {
+                ammoManager.UseAmmo();
+                Shoot();
+            }
+            else
+            {                
+                Debug.Log("Sin balas");
+            }
         }
     }
 
@@ -30,23 +38,17 @@ public class Weapon : MonoBehaviour
         Ray ray = new Ray(firePoint.position, firePoint.forward);
         RaycastHit hit;
 
-        Vector3 hitPoint = firePoint.position + firePoint.forward * range; // Punto por defecto
+        Vector3 hitPoint = firePoint.position + firePoint.forward * range;
 
         if (Physics.Raycast(ray, out hit, range, hitMask))
         {
             hitPoint = hit.point;
 
             // Aplicar daño
-            EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-            }
-
-            // Efecto de impacto
-            if (impactEffect != null)
-            {
-                Instantiate(impactEffect, hitPoint, Quaternion.LookRotation(hit.normal));
             }
         }
 
@@ -63,12 +65,12 @@ public class Weapon : MonoBehaviour
         lineRenderer.SetPosition(0, start);
         lineRenderer.SetPosition(1, end);
 
-        yield return new WaitForSeconds(0.05f); // duración breve del rayo
+        yield return new WaitForSeconds(0.05f);
 
         lineRenderer.enabled = false;
     }
 
-    // Opcional: para ver raycast en Scene view
+    //ver raycast en Scene view
     private void OnDrawGizmosSelected()
     {
         if (firePoint != null && showRayDebug)

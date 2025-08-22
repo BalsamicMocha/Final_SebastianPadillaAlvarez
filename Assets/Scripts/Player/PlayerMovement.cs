@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         Jump();
         grounded = GroundCheck.IsTouchingGround();
+        DeleteSave();
     }
     
     private void Movement()
@@ -36,6 +37,14 @@ public class PlayerMovement : MonoBehaviour
         if (InputController.Instance.JumpInput() && GroundCheck.IsTouchingGround())
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+    //Extra borrar save
+    private void DeleteSave()
+    {
+        if (InputController.Instance.DeleteInput())
+        {
+            SaveSystem.ClearSave();
         }
     }
 }
