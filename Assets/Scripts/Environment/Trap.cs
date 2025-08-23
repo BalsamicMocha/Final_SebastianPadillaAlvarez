@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Trap : MonoBehaviour
-{
-    [SerializeField] private string playerTag = "Player";
+{  
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(playerTag))
+        if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.Play("Spikes");
             KillPlayer();
         }
     }

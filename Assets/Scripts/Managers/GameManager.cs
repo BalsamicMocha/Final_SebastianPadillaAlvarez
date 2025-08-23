@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.Play("Background");
         LoadCheckpoint();
     }
 
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
         // Verificar si quedan enemigos
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            Victory();
+            //Victory();
         }
     }
     
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
 
         if (gameOverPanel != null) gameOverPanel.SetActive(true);
         if (statusText != null) statusText.text = "GAME OVER";
+        AudioManager.Instance.Play("Death");
+        PostProcessManager.Instance.TriggerDeathVignette();
 
         // Reiniciar tras unos segundos
         Invoke(nameof(ReloadScene), 3f);
@@ -59,14 +62,22 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
 
         if (victoryPanel != null) victoryPanel.SetActive(true);
-        if (statusText != null) statusText.text = "VICTORY";
+        if (statusText != null) statusText.text = "VICTORY CREDITS SEBASTIAN PADILLA ALVAREZ";
+        PostProcessManager.Instance.TriggerChromaticAberration();
+        AudioManager.Instance.Play("Victory");
 
-        Invoke(nameof(ReloadScene), 3f);
+        Invoke(nameof(MainMenu), 8f);
     }
 
     void ReloadScene()
     {
+        PostProcessManager.Instance.ResetVignette();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
    
     public void SetCheckpoint(Transform checkpoint)

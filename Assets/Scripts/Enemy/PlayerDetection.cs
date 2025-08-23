@@ -15,7 +15,7 @@ public class PlayerDetection : MonoBehaviour
     {
         SphereCollider col = GetComponent<SphereCollider>();
         col.isTrigger = true;
-        col.radius = 10f; // radio de detección del jugador
+        col.radius = 20f; // radio de detección del jugador
     }
 
     private void OnTriggerEnter(Collider other)

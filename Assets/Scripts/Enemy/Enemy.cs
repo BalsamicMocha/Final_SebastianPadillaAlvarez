@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        AudioManager.Instance.Play("Damaged");
         if (health <= 0)
         {            
             GameManager.Instance.RegisterEnemyDeath(enemyID);

@@ -25,9 +25,11 @@ public class Weapon : MonoBehaviour
             {
                 ammoManager.UseAmmo();
                 Shoot();
+                AudioManager.Instance.Play("Gun");
             }
             else
-            {                
+            {
+                AudioManager.Instance.Play("Empty");
                 Debug.Log("Sin balas");
             }
         }

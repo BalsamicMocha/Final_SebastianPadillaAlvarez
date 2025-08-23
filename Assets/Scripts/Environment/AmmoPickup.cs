@@ -12,6 +12,7 @@ public class AmmoPickup : MonoBehaviour
         if (ammoManager != null)
         {
             ammoManager.AddAmmo(ammoAmount);
+            AudioManager.Instance.Play("Pickup");
             Destroy(gameObject);
         }
     }

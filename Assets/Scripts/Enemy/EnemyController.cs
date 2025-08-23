@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     public EnemyAttack attack;
 
     [Header("Detección")]
-    public float attackRange = 1.5f; // distancia para atacar al jugador
+    public float attackRange = 1.5f; 
     private Transform player;
 
     [Header("Estado")]

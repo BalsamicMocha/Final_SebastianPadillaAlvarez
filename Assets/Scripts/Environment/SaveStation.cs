@@ -22,6 +22,7 @@ public class SaveStation : MonoBehaviour
             };
 
             SaveSystem.SaveGame(data);
+            AudioManager.Instance.Play("Checkpoint");
             Destroy(this.gameObject);
         }
     }
