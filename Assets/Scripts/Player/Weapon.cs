@@ -24,12 +24,11 @@ public class Weapon : MonoBehaviour
             if (ammoManager != null && ammoManager.HasAmmo())
             {
                 ammoManager.UseAmmo();
+                Debug.Log("Disparo");
                 Shoot();
-                AudioManager.Instance.Play("Gun");
             }
             else
             {
-                AudioManager.Instance.Play("Empty");
                 Debug.Log("Sin balas");
             }
         }
@@ -50,7 +49,7 @@ public class Weapon : MonoBehaviour
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.Die();
             }
         }
 

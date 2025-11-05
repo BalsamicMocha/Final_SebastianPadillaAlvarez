@@ -15,6 +15,8 @@ public class WeatherHandler : MonoBehaviour
 
     private string url;
 
+    private string jsonRAW;
+
 
     private void Start()
     {
@@ -35,7 +37,8 @@ public class WeatherHandler : MonoBehaviour
         }
         else
         {
-
+            jsonRAW= request.downloadHandler.text;
+            Debug.Log(jsonRAW);
         }
     }
 }

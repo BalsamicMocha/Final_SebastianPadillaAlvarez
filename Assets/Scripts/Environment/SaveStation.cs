@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class SaveStation : MonoBehaviour
 {
-    private bool activated = false;
+//    private bool activated = false;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!activated && other.CompareTag("Player"))
-        {
-            activated = true;
-            Debug.Log("Checkpoint activado");
+//    private void OnTriggerEnter(Collider other)
+//    {
+//        if (!activated && other.CompareTag("Player"))
+//        {
+//            activated = true;
+//            Debug.Log("Checkpoint activado");
           
-            GameManager.Instance.SetCheckpoint(this.transform);           
-            SaveData data = new SaveData
-            {
-                playerPosition = other.transform.position,
-                currentAmmo = GameManager.Instance.playerAmmo.currentAmmo,
-                defeatedEnemies = GameManager.Instance.GetDefeatedEnemiesList()
-            };
+//            GameManager.Instance.SetCheckpoint(this.transform);           
+//            SaveData data = new SaveData
+//            {
+//                playerPosition = other.transform.position,
+//                currentAmmo = GameManager.Instance.playerAmmo.currentAmmo,
+//            };
 
-            SaveSystem.SaveGame(data);
-            AudioManager.Instance.Play("Checkpoint");
-            Destroy(this.gameObject);
-        }
-    }
+//            SaveSystem.SaveGame(data);
+//            AudioManager.Instance.Play("Checkpoint");
+//            Destroy(this.gameObject);
+//        }
+//    }
 }

@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public string enemyID;
-    public int health = 100;
+    private Spawn spawner;
+    private GameManager manager;
 
-    private void Start()
-    {       
-        if (GameManager.Instance != null && GameManager.Instance.IsEnemyDead(enemyID))
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void TakeDamage(int damage)
+    public void Initialize(Spawn spawner, GameManager manager)
     {
-        health -= damage;
-        AudioManager.Instance.Play("Damaged");
-        if (health <= 0)
-        {            
-            GameManager.Instance.RegisterEnemyDeath(enemyID);
-            Destroy(gameObject);
-        }
+        this.spawner = spawner;
+        this.manager = manager;
     }
+        
+
+    public void Die()
+    {
+        spawner.BackToQueue(gameObject);
+        manager.EnemyKilled();
+
+    }
+    
 }
 

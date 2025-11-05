@@ -16,7 +16,6 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.CompareTag(playerTag))
         {
-            anim.SetTrigger("Attack");
             KillPlayer();
         }
     }
@@ -24,8 +23,6 @@ public class EnemyAttack : MonoBehaviour
     private void KillPlayer()
     {        
         GameManager.Instance.GameOver();
-        AudioManager.Instance.Play("Explosion");
-        AudioManager.Instance.Play("Scream");
     }
 }
 
