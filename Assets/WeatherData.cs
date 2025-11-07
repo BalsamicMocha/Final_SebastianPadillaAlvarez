@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
+[Serializable]
 public struct WeatherData
 {
     public string timeZone;
-    public string temp;
+    public float temp;
     public string weatherDescription;
 }
